@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title th:text="${title}">Tenant Management - Service Login</title>
+
+  <!-- Linking external CSS file using Thymeleaf -->
+  <link rel="stylesheet" th:href="@{/css/LoginStyle.css}">
+
+  <!-- Font Awesome CDN for icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+
+<body>
+  <main>
+    <header>
+      <h1>Tenant Management</h1>
+    </header>
+
+    <section class="login-section">
+      <div class="login-container">
+        <h2>Service Login</h2>
+
+        <!-- Social Login Section -->
+        <div class="social-login">
+          <button class="google-login" aria-label="Login with Google" onclick="loginWithGoogle()">
+            <i class="fab fa-google"></i> Login with Google
+          </button>
+          <button class="facebook-login" aria-label="Login with Facebook" onclick="loginWithFacebook()">
+            <i class="fab fa-facebook-f"></i> Login with Facebook
+          </button>
+          <button class="apple-login" aria-label="Login with Apple" onclick="loginWithApple()">
+            <i class="fab fa-apple"></i> Login with Apple
+          </button>
+        </div>
+
+        <!-- Separator -->
+        <hr aria-hidden="true">
+
+        <!-- Email/Password Login Form -->
+        <form th:action="@{/login}" method="post">
+          <div class="form-group">
+            <label for="username">Email</label>
+            <input type="email" id="username" name="username" placeholder="Email" required aria-required="true">
+          </div>
+
+          <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Password" required aria-required="true">
+          </div>
+
+          <button type="submit" class="login-btn" aria-label="Login">Login</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- Linking external JavaScript file using Thymeleaf -->
+  <script th:src="@{/js/LoginScript.js}"></script>
+</body>
+
+</html>
